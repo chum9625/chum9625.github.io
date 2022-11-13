@@ -163,27 +163,27 @@
       display:block;
       z-index:101;
 }
-/* 各サムネイルがチェックされた時の#photo5のボタン領域を表示 */
-#r1:checked ~ #stage #photo5 label .cover_left,
-#r1:checked ~ #stage #photo5 label .cover_right,
-#r2:checked ~ #stage #photo5 label .cover_left,
-#r2:checked ~ #stage #photo5 label .cover_right,
-#r3:checked ~ #stage #photo5 label .cover_left,
-#r3:checked ~ #stage #photo5 label .cover_right,
-#r4:checked ~ #stage #photo5 label .cover_left,
-#r4:checked ~ #stage #photo5 label .cover_right,
-#r5:checked ~ #stage #photo5 label .cover_left,
-#r5:checked ~ #stage #photo5 label .cover_right,
-#r6:checked ~ #stage #photo5 label .cover_left,
-#r6:checked ~ #stage #photo5 label .cover_right,
-#r7:checked ~ #stage #photo5 label .cover_left,
-#r7:checked ~ #stage #photo5 label .cover_right,
-#r8:checked ~ #stage #photo5 label .cover_left,
-#r8:checked ~ #stage #photo5 label .cover_right,
-#r9:checked ~ #stage #photo5 label .cover_left,
-#r9:checked ~ #stage #photo5 label .cover_right,
-#r10:checked ~ #stage #photo5 label .cover_left,
-#r10:checked ~ #stage #photo5 label .cover_right {
+/* 各サムネイルがチェックされた時の#photo10のボタン領域を表示 */
+#r1:checked ~ #stage #photo10 label .cover_left,
+#r1:checked ~ #stage #photo10 label .cover_right,
+#r2:checked ~ #stage #photo10 label .cover_left,
+#r2:checked ~ #stage #photo10 label .cover_right,
+#r3:checked ~ #stage #photo10 label .cover_left,
+#r3:checked ~ #stage #photo10 label .cover_right,
+#r4:checked ~ #stage #photo10 label .cover_left,
+#r4:checked ~ #stage #photo10 label .cover_right,
+#r5:checked ~ #stage #photo10 label .cover_left,
+#r5:checked ~ #stage #photo10 label .cover_right,
+#r6:checked ~ #stage #photo10 label .cover_left,
+#r6:checked ~ #stage #photo10 label .cover_right,
+#r7:checked ~ #stage #photo10 label .cover_left,
+#r7:checked ~ #stage #photo10 label .cover_right,
+#r8:checked ~ #stage #photo10 label .cover_left,
+#r8:checked ~ #stage #photo10 label .cover_right,
+#r9:checked ~ #stage #photo10 label .cover_left,
+#r9:checked ~ #stage #photo10 label .cover_right,
+#r10:checked ~ #stage #photo10 label .cover_left,
+#r10:checked ~ #stage #photo10 label .cover_right {
 	display:block;
 }
 
