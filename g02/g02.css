@@ -1,30 +1,30 @@
 /*全サムネイルのコンテナー*/
 #thumbs {
-	 position: relative;
-	 max-width: 630px;
-	 margin:5px auto;
-	 z-index:85;
+  position: relative;
+	max-width: 630px;
+	margin:5px auto;
+	z-index:85;
 }
 /*サムネイルのマウスオーバーでポインターを手のひら*/
 #thumbs label img {
-	 cursor: pointer;
+  cursor: pointer;
 }
 /*ラジオボタンを非表示に*/
-#r1, #r2, #r3, #r4, #r5, #r6, #r7 {
-	 display: none;
+#r1, #r2, #r3, #r4, #r5, #r6, #r7, #r8, #r9, #r10, #r90, #r91 {
+  display: none;
 }
 /* 写真表示領域 */
 #stage {
 	position:fixed;
-        left:0;
+  left:0;
 	top:0;
 	width:100%;
 	height:100%;
 	z-index:-1000;
 }
 /*表示写真の初期配置（全部透明に）*/
-#photo1, #photo2, #photo3, #photo4, #photo5 {
-  	position:absolute;
+#photo1, #photo2, #photo3, #photo4, #photo5, #photo6, #photo7, #photo8, #photo9, #photo10 {
+  position:absolute;
 	max-width:1200px;
 	width:62%;
 	left:19%;
@@ -38,7 +38,7 @@
         -o-transition: all 1s ease;
         transition: all 1s ease;
 }
-#photo1 img, #photo2 img, #photo3 img, #photo4 img, #photo5 img {
+#photo1 img, #photo2 img, #photo3 img, #photo4 img, #photo5 img, #photo6 img, #photo7 img, #photo8 img, #photo9 img, #photo10 img {
 	max-width:1200px;
 	width: 100%;
 	height: auto;
@@ -48,13 +48,13 @@
 .span_r { float:right; font-weight:bold;  margin:5px 10px 0 0; cursor:pointer;}
 /*写真表示時の画面遮蔽スクリーン*/
 #darkscreen {
-  	position:fixed;
+  position:fixed;
 	position:absolute;
-        width:100%;
+  width:100%;
 	height:100%;
 	top:0;
 	left:0;
-    	background:#000;
+  background:#000;
 	opacity:0;
 	z-index:-5;
 }
@@ -98,22 +98,71 @@
   	color:#EEE;
 }
 /* サムネイル、送りボタンチェックで#stageを表示 */
-#r1:checked ~ #stage,#r2:checked ~ #stage,#r3:checked ~ #stage,#r4:checked ~ #stage,#r5:checked ~ #stage {
+#r1:checked ~ #stage,
+#r2:checked ~ #stage,
+#r3:checked ~ #stage,
+#r4:checked ~ #stage,
+#r5:checked ~ #stage,
+#r6:checked ~ #stage,
+#r7:checked ~ #stage,
+#r8:checked ~ #stage,
+#r9:checked ~ #stage,
+#r10:checked ~ #stage
+{
 	z-index:100;
 	opacity:1;
 }
 /* サムネイル、送りボタンチェックで#darkscreenを表示 */
-#r1:checked ~ label #darkscreen, #r2:checked ~ label #darkscreen, #r3:checked ~ label #darkscreen, #r4:checked ~ label #darkscreen, #r5:checked ~ label #darkscreen {
-       opacity:0.6;
-       z-index:90;
+#r1:checked ~ label #darkscreen,
+#r2:checked ~ label #darkscreen,
+#r3:checked ~ label #darkscreen,
+#r4:checked ~ label #darkscreen,
+#r5:checked ~ label #darkscreen,
+#r6:checked ~ label #darkscreen,
+#r7:checked ~ label #darkscreen,
+#r8:checked ~ label #darkscreen,
+#r9:checked ~ label #darkscreen,
+#r10:checked ~ label #darkscreen
+{
+  opacity:0.6;
+  z-index:90;
 }
 /* 各サムネイルがチェックされた時の#photo の表示 */
-#r1:checked ~ #stage #photo1,#r2:checked ~ #stage #photo2,#r3:checked ~ #stage #photo3,#r4:checked ~ #stage #photo4,#r5:checked ~ #stage #photo5 {
+#r1:checked ~ #stage #photo1,
+#r2:checked ~ #stage #photo2,
+#r3:checked ~ #stage #photo3,
+#r4:checked ~ #stage #photo4,
+#r5:checked ~ #stage #photo5,
+#r6:checked ~ #stage #photo6,
+#r7:checked ~ #stage #photo7,
+#r8:checked ~ #stage #photo8,
+#r9:checked ~ #stage #photo9,
+#r10:checked ~ #stage #photo10
+{
       opacity:1;
       display:block;
       z-index:101;
 }
 /* 各サムネイルがチェックされた時の#photo5のボタン領域を表示 */
-#r1:checked ~ #stage #photo5 label .cover_left,#r1:checked ~ #stage #photo5 label .cover_right,#r2:checked ~ #stage #photo5 label .cover_left,#r2:checked ~ #stage #photo5 label .cover_right,#r3:checked ~ #stage #photo5 label .cover_left,#r3:checked ~ #stage #photo5 label .cover_right,#r4:checked ~ #stage #photo5 label .cover_left,#r4:checked ~ #stage #photo5 label .cover_right,#r5:checked ~ #stage #photo5 label .cover_left,#r5:checked ~ #stage #photo5 label .cover_right {
+#r1:checked ~ #stage #photo5 label .cover_left,
+#r1:checked ~ #stage #photo5 label .cover_right,
+#r2:checked ~ #stage #photo5 label .cover_left,
+#r2:checked ~ #stage #photo5 label .cover_right,
+#r3:checked ~ #stage #photo5 label .cover_left,
+#r3:checked ~ #stage #photo5 label .cover_right,
+#r4:checked ~ #stage #photo5 label .cover_left,
+#r4:checked ~ #stage #photo5 label .cover_right,
+#r5:checked ~ #stage #photo5 label .cover_left,
+#r5:checked ~ #stage #photo5 label .cover_right,
+#r6:checked ~ #stage #photo5 label .cover_left,
+#r6:checked ~ #stage #photo5 label .cover_right,
+#r7:checked ~ #stage #photo5 label .cover_left,
+#r7:checked ~ #stage #photo5 label .cover_right,
+#r8:checked ~ #stage #photo5 label .cover_left,
+#r8:checked ~ #stage #photo5 label .cover_right,
+#r9:checked ~ #stage #photo5 label .cover_left,
+#r9:checked ~ #stage #photo5 label .cover_right,
+#r10:checked ~ #stage #photo5 label .cover_left,
+#r10:checked ~ #stage #photo5 label .cover_right {
 	display:block;
 }
