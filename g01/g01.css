@@ -1,0 +1,196 @@
+@charset "utf-8";
+
+/* ヘッダー */
+#header {
+	width:100%;
+	height:50px;
+	background:#eee;
+	text-align:center;
+	margin:0;
+}
+#header h2 { margin-top:0px; }
+/* コンテンツ枠 */
+#stage {
+	max-width: 1000px;
+	margin: 3px auto;
+}
+/* ナビゲート用小画像総枠 */
+.frame {
+	position: relative;
+}
+.frame:hover {
+	cursor: pointer;
+}
+/* ナビゲート用小画像枠 */
+.cell {
+	position: absolute;
+	opacity: 1;
+	width: 20%;
+	transition: all 0.5s ease;
+}
+/* ラジオボタン非表示（他にinput文があるときは#rを全て記述） */
+input { display:none; }
+/* 小画像の配置 */
+#c1 { padding-top:0; left:0; }
+#c2 { padding-top:0; left:20%; }
+#c3 { padding-top:0; left:40%; }
+#c4 { padding-top:0; left:60%; }
+#c5 { padding-top:0; left:80%; }
+#c6 { padding-top:11.5%; left:0%; }
+#c7 { padding-top:11.5%; left:20%; }
+#c8 { padding-top:11.5%; left:40%; }
+#c9 { padding-top:11.5%; left:60%; }
+#c10 { padding-top:11.5%; left:80%; }
+#c11 { padding-top:23%; left:0%; }
+#c12 { padding-top:23%; left:20%; }
+#c13 { padding-top:23%; left:40%; }
+#c14 { padding-top:23%; left:60%; }
+#c15 { padding-top:23%; left:80%; }
+/* 小画像クリック時に他の画像を見えなくする */
+#r1:checked ~ .frame label:not([for="r1"]) > .cell,
+#r2:checked ~ .frame label:not([for="r2"]) > .cell,
+#r3:checked ~ .frame label:not([for="r3"]) > .cell,
+#r4:checked ~ .frame label:not([for="r4"]) > .cell,
+#r5:checked ~ .frame label:not([for="r5"]) > .cell,
+#r6:checked ~ .frame label:not([for="r6"]) > .cell,
+#r7:checked ~ .frame label:not([for="r7"]) > .cell,
+#r8:checked ~ .frame label:not([for="r8"]) > .cell,
+#r9:checked ~ .frame label:not([for="r9"]) > .cell,
+#r10:checked ~ .frame label:not([for="r10"]) > .cell,
+#r11:checked ~ .frame label:not([for="r11"]) > .cell,
+#r12:checked ~ .frame label:not([for="r12"]) > .cell,
+#r13:checked ~ .frame label:not([for="r13"]) > .cell,
+#r14:checked ~ .frame label:not([for="r14"]) > .cell,
+#r15:checked ~ .frame label:not([for="r15"]) > .cell {
+	width:0;
+	opacity:0;
+}
+/* 小画像クリック時に画像を上左寄せで拡大 */
+#r1:checked ~ .frame label #c1,
+#r2:checked ~ .frame label #c2,
+#r3:checked ~ .frame label #c3,
+#r4:checked ~ .frame label #c4,
+#r5:checked ~ .frame label #c5,
+#r6:checked ~ .frame label #c6,
+#r7:checked ~ .frame label #c7,
+#r8:checked ~ .frame label #c8,
+#r9:checked ~ .frame label #c9,
+#r10:checked ~ .frame label #c10,
+#r11:checked ~ .frame label #c11,
+#r12:checked ~ .frame label #c12,
+#r13:checked ~ .frame label #c13,
+#r14:checked ~ .frame label #c14,
+#r15:checked ~ .frame label #c15 {
+	padding-top: 0;
+	left: 0;
+	width: 100%;
+	cursor: auto;
+}
+/* 閉じるボタンクリックで画像サイズ等を元に戻し、閉じるボタンを非表示に */
+#r100:checked ~ .frame label .cell {
+	width: 20%;
+	pointer-events: auto;
+}
+#r100:checked ~ .frame label .cell .screen {
+	display:block;
+}
+#r100:checked ~ .frame label #close {
+	display:none;
+}
+#r100:checked ~ .frame label .cell {
+}
+/* 小画像クリックで赤紫色スクリーンをとタイトルを消し閉じるボタンを表示 */
+.rbtn:checked ~ .frame label .cell .screen {
+	display: none;
+}
+.rbtn:checked ~ .frame label .cell {
+	pointer-events: none;
+}
+.rbtn:checked ~ .frame label #close {
+	display:block;
+}
+/* 小画像 */
+.cell img {
+	width: 100%;
+	border: 2px #fff solid;
+}
+/* 小画像マウスオーバーで効果出現 */
+.cell:hover > .screen {
+	background-color: rgba(204,51,51,0.5);
+	box-shadow: 0 0 0 2px #930 inset;
+}
+.cell:hover > .title {
+	opacity:1;
+}
+/* 赤紫色スクリーン */
+.screen {
+	background-color: rgba(204,151,51,0);
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 97%;
+}
+/* タイトル */
+.title {
+	position: absolute;
+	margin-top: 20%;
+	margin-left: 30%;
+	color: #FFF;
+	font-weight: bold;
+	font-size: 22px;
+	display: block;
+	opacity:0;
+	transition:opacity 1s ease;
+}
+/* 閉じるボタン */
+#close { position:absolute;
+	top:-2％;right:-2％;
+	display:none;
+}
+#close img { width:60%; }
+/* 説明文枠 */
+//#descrptn { position:relative; }
+.desc { opacity:0; margin-top:-10%; transition:all 0.5s ease; position:absolute; max-width:1000px; }
+/* 各画像説明文の表示 */
+#r1:checked ~ #descrptn #d1 { opacity:1; margin-top:0; }
+#r2:checked ~ #descrptn #d2 { opacity:1; margin-top:0; }
+#r3:checked ~ #descrptn #d3 { opacity:1; margin-top:0; }
+#r4:checked ~ #descrptn #d4 { opacity:1; margin-top:0; }
+#r5:checked ~ #descrptn #d5 { opacity:1; margin-top:0; }
+#r6:checked ~ #descrptn #d6 { opacity:1; margin-top:0; }
+#r7:checked ~ #descrptn #d7 { opacity:1; margin-top:0; }
+#r8:checked ~ #descrptn #d8 { opacity:1; margin-top:0; }
+#r9:checked ~ #descrptn #d9 { opacity:1; margin-top:0; }
+#r10:checked ~ #descrptn #d10 { opacity:1; margin-top:0; }
+#r11:checked ~ #descrptn #d11 { opacity:1; margin-top:0; }
+#r12:checked ~ #descrptn #d12 { opacity:1; margin-top:0; }
+#r13:checked ~ #descrptn #d13 { opacity:1; margin-top:0; }
+#r14:checked ~ #descrptn #d14 { opacity:1; margin-top:0; }
+#r15:checked ~ #descrptn #d15 { opacity:1; margin-top:0; }
+/* 一覧に戻るボタン */
+.back:hover { cursor:pointer; }
+/* HTML.CSS表示iframe---ページコンテンツ */
+.p-home {
+	position:relative;
+	max-width:1000px;
+	margin:0 auto;
+	transition:all 1s ease;
+	z-index:100;
+}
+.p-home iframe {
+	position:absolute;
+	width:100%;
+	height:500px;
+	background-color:#9BC1EF;
+}
+.rbtn:checked ~ .p-home {
+	opacity:0;
+	margin-top:50px;
+	z-index:-1;
+}
+#r100:checked ~ .p-home {
+	opacity:1;
+	margin-top:0px;
+	z-index:100;
+}

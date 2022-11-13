@@ -5,450 +5,260 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<style>
-/* ヘッダー */
-#header {
-	width:100%;
-	height:50px;
-	background:#eee;
-	text-align:center;
-	margin:0;
-}
-#header h2 { margin-top:0px; }
-/* コンテンツ枠 */
-#stage {
-	max-width: 1000px;
-	margin: 3px auto;
-}
-/* ナビゲート用小画像総枠 */
-.frame {
-	position: relative;
-}
-.frame:hover {
-	cursor: pointer;
-}
-/* ナビゲート用小画像枠 */
-.cell {
-	position: absolute;
-	opacity: 1;
-	width: 20%;
-	transition: all 0.5s ease;
-}
-/* ラジオボタン非表示（他にinput文があるときは#rを全て記述） */
-input { display:none; }
-/* 小画像の配置 */
-#c1 { padding-top:0; left:0; }
-#c2 { padding-top:0; left:20%; }
-#c3 { padding-top:0; left:40%; }
-#c4 { padding-top:0; left:60%; }
-#c5 { padding-top:0; left:80%; }
-#c6 { padding-top:11.5%; left:0%; }
-#c7 { padding-top:11.5%; left:20%; }
-#c8 { padding-top:11.5%; left:40%; }
-#c9 { padding-top:11.5%; left:60%; }
-#c10 { padding-top:11.5%; left:80%; }
-#c11 { padding-top:23%; left:0%; }
-#c12 { padding-top:23%; left:20%; }
-#c13 { padding-top:23%; left:40%; }
-#c14 { padding-top:23%; left:60%; }
-#c15 { padding-top:23%; left:80%; }
-/* 小画像クリック時に他の画像を見えなくする */
-#r1:checked ~ .frame label:not([for="r1"]) > .cell,
-#r2:checked ~ .frame label:not([for="r2"]) > .cell,
-#r3:checked ~ .frame label:not([for="r3"]) > .cell,
-#r4:checked ~ .frame label:not([for="r4"]) > .cell,
-#r5:checked ~ .frame label:not([for="r5"]) > .cell,
-#r6:checked ~ .frame label:not([for="r6"]) > .cell,
-#r7:checked ~ .frame label:not([for="r7"]) > .cell,
-#r8:checked ~ .frame label:not([for="r8"]) > .cell,
-#r9:checked ~ .frame label:not([for="r9"]) > .cell,
-#r10:checked ~ .frame label:not([for="r10"]) > .cell,
-#r11:checked ~ .frame label:not([for="r11"]) > .cell,
-#r12:checked ~ .frame label:not([for="r12"]) > .cell,
-#r13:checked ~ .frame label:not([for="r13"]) > .cell,
-#r14:checked ~ .frame label:not([for="r14"]) > .cell,
-#r15:checked ~ .frame label:not([for="r15"]) > .cell {
-	width:0;
-	opacity:0;
-}
-/* 小画像クリック時に画像を上左寄せで拡大 */
-#r1:checked ~ .frame label #c1,
-#r2:checked ~ .frame label #c2,
-#r3:checked ~ .frame label #c3,
-#r4:checked ~ .frame label #c4,
-#r5:checked ~ .frame label #c5,
-#r6:checked ~ .frame label #c6,
-#r7:checked ~ .frame label #c7,
-#r8:checked ~ .frame label #c8,
-#r9:checked ~ .frame label #c9,
-#r10:checked ~ .frame label #c10,
-#r11:checked ~ .frame label #c11,
-#r12:checked ~ .frame label #c12,
-#r13:checked ~ .frame label #c13,
-#r14:checked ~ .frame label #c14,
-#r15:checked ~ .frame label #c15 {
-	padding-top: 0;
-	left: 0;
-	width: 100%;
-	cursor: auto;
-}
-/* 閉じるボタンクリックで画像サイズ等を元に戻し、閉じるボタンを非表示に */
-#r100:checked ~ .frame label .cell {
-	width: 20%;
-	pointer-events: auto;
-}
-#r100:checked ~ .frame label .cell .screen {
-	display:block;
-}
-#r100:checked ~ .frame label #close {
-	display:none;
-}
-#r100:checked ~ .frame label .cell {
-}
-/* 小画像クリックで赤紫色スクリーンをとタイトルを消し閉じるボタンを表示 */
-.rbtn:checked ~ .frame label .cell .screen {
-	display: none;
-}
-.rbtn:checked ~ .frame label .cell {
-	pointer-events: none;
-}
-.rbtn:checked ~ .frame label #close {
-	display:block;
-}
-/* 小画像 */
-.cell img {
-	width: 100%;
-	border: 2px #fff solid;
-}
-/* 小画像マウスオーバーで効果出現 */
-.cell:hover > .screen {
-	background-color: rgba(204,51,51,0.5);
-	box-shadow: 0 0 0 2px #930 inset;
-}
-.cell:hover > .title {
-	opacity:1;
-}
-/* 赤紫色スクリーン */
-.screen {
-	background-color: rgba(204,151,51,0);
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 97%;
-}
-/* タイトル */
-.title {
-	position: absolute;
-	margin-top: 20%;
-	margin-left: 30%;
-	color: #FFF;
-	font-weight: bold;
-	font-size: 22px;
-	display: block;
-	opacity:0;
-	transition:opacity 1s ease;
-}
-/* 閉じるボタン */
-#close { position:absolute;
-	top:-2％;right:-2％;
-	display:none;
-}
-#close img { width:60%; }
-/* 説明文枠 */
-/*/#descrptn { position:relative; }
-.desc { opacity:0; margin-top:-10%; transition:all 0.5s ease; position:absolute; max-width:1000px; }*/
-/* 各画像説明文の表示 */
-#r1:checked ~ #descrptn #d1 { opacity:1; margin-top:0; }
-#r2:checked ~ #descrptn #d2 { opacity:1; margin-top:0; }
-#r3:checked ~ #descrptn #d3 { opacity:1; margin-top:0; }
-#r4:checked ~ #descrptn #d4 { opacity:1; margin-top:0; }
-#r5:checked ~ #descrptn #d5 { opacity:1; margin-top:0; }
-#r6:checked ~ #descrptn #d6 { opacity:1; margin-top:0; }
-#r7:checked ~ #descrptn #d7 { opacity:1; margin-top:0; }
-#r8:checked ~ #descrptn #d8 { opacity:1; margin-top:0; }
-#r9:checked ~ #descrptn #d9 { opacity:1; margin-top:0; }
-#r10:checked ~ #descrptn #d10 { opacity:1; margin-top:0; }
-#r11:checked ~ #descrptn #d11 { opacity:1; margin-top:0; }
-#r12:checked ~ #descrptn #d12 { opacity:1; margin-top:0; }
-#r13:checked ~ #descrptn #d13 { opacity:1; margin-top:0; }
-#r14:checked ~ #descrptn #d14 { opacity:1; margin-top:0; }
-#r15:checked ~ #descrptn #d15 { opacity:1; margin-top:0; }
-/* 一覧に戻るボタン */
-.back:hover { cursor:pointer; }
-/* HTML.CSS表示iframe---ページコンテンツ */
-.p-home {
-	position:relative;
-	max-width:1000px;
-	margin:0 auto;
-	transition:all 1s ease;
-	z-index:100;
-}
-.p-home iframe {
-	position:absolute;
-	width:100%;
-	height:500px;
-	background-color:#9BC1EF;
-}
-.rbtn:checked ~ .p-home {
-	opacity:0;
-	margin-top:50px;
-	z-index:-1;
-}
-#r100:checked ~ .p-home {
-	opacity:1;
-	margin-top:0px;
-	z-index:100;
-}
-</style>
-<title>Document</title>
+	<link rel="stylesheet" href="g01.css">
+	<title>フォトギャラリーナビ型ポートフォリオ</title>
 </head>
 <body>
 
-<div id="header">
-<h2>フォトギャラリーナビ型ポートフォリオ</h2>
-</div>
-<div id="stage">
-  <!-- ラジオボタンの設置 -->
-  <input id="r1" class="rbtn" type="radio" name="thumb">
-  <input id="r2" class="rbtn" type="radio" name="thumb">
-  <input id="r3" class="rbtn" type="radio" name="thumb">
-  <input id="r4" class="rbtn" type="radio" name="thumb">
-  <input id="r5" class="rbtn" type="radio" name="thumb">
-  <input id="r6" class="rbtn" type="radio" name="thumb">
-  <input id="r7" class="rbtn" type="radio" name="thumb">
-  <input id="r8" class="rbtn" type="radio" name="thumb">
-  <input id="r9" class="rbtn" type="radio" name="thumb">
-  <input id="r10" class="rbtn" type="radio" name="thumb">
-  <input id="r11" class="rbtn" type="radio" name="thumb">
-  <input id="r12" class="rbtn" type="radio" name="thumb">
-  <input id="r13" class="rbtn" type="radio" name="thumb">
-  <input id="r14" class="rbtn" type="radio" name="thumb">
-  <input id="r15" class="rbtn" type="radio" name="thumb">
-  <input id="r100" class="rbtn" type="radio" name="thumb">
-  <!--  -->
-  <!-- 小画像配置総枠 -->
-  <div class="frame">
-  	<!-- 各画像・標題などの配置 -->
-    <label for="r11">
-    	<div class="cell" id="c11">
-    		<div class="screen"></div>
-            <span class="title">平ヶ岳</span>
-    		<img src="img01/hiragatake.jpg">
-        </div>
-    </label>
-    <label for="r12">
-    	<div class="cell" id="c12">
-    		<div class="screen"></div>
-    		<span class="title">赤石岳</span>
-        	<img src="img01/akaisi.jpg">
-        </div>
-    </label>
-    <label for="r13">
-    	<div class="cell" id="c13">
-    		<div class="screen"></div>
-    		<span class="title">荒川岳</span>
-        	<img src="img01/arakawa.jpg">
-        </div>
-    </label>
-    <label for="r14">
-    	<div class="cell" id="c14">
-      		<div class="screen"></div>
-      		<span class="title">八ヶ岳</span>
-        	<img src="img01/yatugatake.jpg">
-        </div>
-    </label>
-    <label for="r15">
-    	<div class="cell" id="c15">
-    		<div class="screen"></div>
-    		<span class="title">久住山</span>
-        	<img src="img01/kuju.jpg">
-    	</div>
-    </label>
-    <label for="r6">
-    	<div class="cell" id="c6">
-      		<div class="screen"></div>
-      		<span class="title">鷲羽岳</span>
-        	<img src="img01/wasiba.jpg">
-      	</div>
-    </label>
-    <label for="r7">
-    	<div class="cell" id="c7">
-      		<div class="screen"></div>
-      		<span class="title">野口五郎岳</span>
-        	<img src="img01/noguti.jpg">
-        </div>
-    </label>
-    <label for="r8">
-    	<div class="cell" id="c8">
-      		<div class="screen"></div>
-      		<span class="title">薬師岳</span>
-        	<img src="img01/yakusi.jpg">
-        </div>
-    </label>
-    <label for="r9">
-    	<div class="cell" id="c9">
-      		<div class="screen"></div>
-      		<span class="title">白馬岳</span>
-        	<img src="img01/sirouma.jpg">
-        </div>
-    </label>
-    <label for="r10">
-    	<div class="cell" id="c10">
-      		<div class="screen"></div>
-      		<span class="title">剣岳</span>
-        	<img src="img01/turugi.jpg">
-    	</div>
-    </label>
-    <label for="r1">
-    	<div class="cell" id="c1">
-      		<div class="screen"></div>
-      		<span class="title">蝶ヶ岳</span>
-    		<img src="img01/chogatake.jpg">
-      	</div>
-    </label>
-    <label for="r2">
-    	<div class="cell" id="c2">
-      		<div class="screen"></div>
-      		<span class="title">涸沢</span>
-        	<img src="img01/karasawa.jpg">
-        </div>
-    </label>
-    <label for="r3">
-    	<div class="cell" id="c3">
-      		<div class="screen"></div>
-      		<span class="title">穂高岳</span>
-        	<img src="img01/hodaka.jpg">
-        </div>
-    </label>
-    <label for="r4">
-    	<div class="cell" id="c4">
-      		<div class="screen"></div>
-      		<span class="title">槍ヶ岳</span>
-        	<img src="img01/yarigatake.jpg">
-        </div>
-    </label>
-    <label for="r5">
-    	<div class="cell" id="c5">
-      		<div class="screen"></div>
-      		<span class="title">焼岳</span>
-        	<img src="img01/yakedake.jpg">
-        </div>
-    </label>
-    <!-- 閉じるボタンの配置 -->
-    <label for="r100"><div id="close"><img src="img01/end.gif"></div></label>
-  </div>
-  <!-- 小画像総枠高さの確保 -->
-  <div style="padding-bottom:35%;"></div>
-
-	<div style="padding-bottom:15%;"></div>
-
-	<!-- 説明文の配置 -->
-  <div id="descrptn">
-  	<div class="desc" id="d1">
-    	<h2>蝶ヶ岳</h2>
-    	<p>　残雪の穂高連峰と槍ヶ岳を望む絶好のスポット蝶ヶ岳に登りたいという思いがかねてからあったが、ここ暫く晴天が続くという天気予報を見て、いてもたってもいられなくなり、今回の山行となった。
+	<div id="header">
+		<h2>フォトギャラリーナビ型ポートフォリオ</h2>
+	</div>
+	<div id="stage">
+		<!-- ラジオボタンの設置 -->
+		<input id="r1" class="rbtn" type="radio" name="thumb">
+		<input id="r2" class="rbtn" type="radio" name="thumb">
+		<input id="r3" class="rbtn" type="radio" name="thumb">
+		<input id="r4" class="rbtn" type="radio" name="thumb">
+		<input id="r5" class="rbtn" type="radio" name="thumb">
+		<input id="r6" class="rbtn" type="radio" name="thumb">
+		<input id="r7" class="rbtn" type="radio" name="thumb">
+		<input id="r8" class="rbtn" type="radio" name="thumb">
+		<input id="r9" class="rbtn" type="radio" name="thumb">
+		<input id="r10" class="rbtn" type="radio" name="thumb">
+		<input id="r11" class="rbtn" type="radio" name="thumb">
+		<input id="r12" class="rbtn" type="radio" name="thumb">
+		<input id="r13" class="rbtn" type="radio" name="thumb">
+		<input id="r14" class="rbtn" type="radio" name="thumb">
+		<input id="r15" class="rbtn" type="radio" name="thumb">
+		<input id="r100" class="rbtn" type="radio" name="thumb">
+		<!--  -->
+		<!-- 小画像配置総枠 -->
+		<div class="frame">
+			<!-- 各画像・標題などの配置 -->
+			<label for="r11">
+				<div class="cell" id="c11">
+					<div class="screen"></div>
+					<span class="title">平ヶ岳</span>
+					<img src="img01/hiragatake.jpg">
+				</div>
+			</label>
+			<label for="r12">
+				<div class="cell" id="c12">
+					<div class="screen"></div>
+					<span class="title">赤石岳</span>
+					<img src="img01/akaisi.jpg">
+				</div>
+			</label>
+			<label for="r13">
+				<div class="cell" id="c13">
+					<div class="screen"></div>
+					<span class="title">荒川岳</span>
+					<img src="img01/arakawa.jpg">
+				</div>
+			</label>
+			<label for="r14">
+				<div class="cell" id="c14">
+					<div class="screen"></div>
+					<span class="title">八ヶ岳</span>
+					<img src="img01/yatugatake.jpg">
+				</div>
+			</label>
+			<label for="r15">
+				<div class="cell" id="c15">
+					<div class="screen"></div>
+					<span class="title">久住山</span>
+					<img src="img01/kuju.jpg">
+				</div>
+			</label>
+			<label for="r6">
+				<div class="cell" id="c6">
+					<div class="screen"></div>
+					<span class="title">鷲羽岳</span>
+					<img src="img01/wasiba.jpg">
+				</div>
+			</label>
+			<label for="r7">
+				<div class="cell" id="c7">
+					<div class="screen"></div>
+					<span class="title">野口五郎岳</span>
+					<img src="img01/noguti.jpg">
+				</div>
+			</label>
+			<label for="r8">
+				<div class="cell" id="c8">
+					<div class="screen"></div>
+					<span class="title">薬師岳</span>
+					<img src="img01/yakusi.jpg">
+				</div>
+			</label>
+			<label for="r9">
+				<div class="cell" id="c9">
+					<div class="screen"></div>
+					<span class="title">白馬岳</span>
+					<img src="img01/sirouma.jpg">
+				</div>
+			</label>
+			<label for="r10">
+				<div class="cell" id="c10">
+					<div class="screen"></div>
+					<span class="title">剣岳</span>
+					<img src="img01/turugi.jpg">
+				</div>
+			</label>
+			<label for="r1">
+				<div class="cell" id="c1">
+					<div class="screen"></div>
+					<span class="title">蝶ヶ岳</span>
+					<img src="img01/chogatake.jpg">
+				</div>
+			</label>
+			<label for="r2">
+				<div class="cell" id="c2">
+					<div class="screen"></div>
+					<span class="title">涸沢</span>
+					<img src="img01/karasawa.jpg">
+				</div>
+			</label>
+			<label for="r3">
+				<div class="cell" id="c3">
+					<div class="screen"></div>
+					<span class="title">穂高岳</span>
+					<img src="img01/hodaka.jpg">
+				</div>
+			</label>
+			<label for="r4">
+				<div class="cell" id="c4">
+					<div class="screen"></div>
+					<span class="title">槍ヶ岳</span>
+					<img src="img01/yarigatake.jpg">
+				</div>
+			</label>
+			<label for="r5">
+				<div class="cell" id="c5">
+					<div class="screen"></div>
+					<span class="title">焼岳</span>
+					<img src="img01/yakedake.jpg">
+				</div>
+			</label>
+			<!-- 閉じるボタンの配置 -->
+			<label for="r100">
+				<div id="close"><img src="img01/end.gif"></div>
+			</label>
+		</div>
+		<!-- 小画像総枠高さの確保 -->
+		<div style="padding-bottom:35%;"></div>
+		<!-- コード表示 -->
+		<div class="p-home">
+			<h4>本サンプル表示用HTML</h4>
+			<iframe src="i-html/code.html" frameborder="0"></iframe>
+		</div>
+		<div style="padding-bottom:15%;"></div>
+		<!-- 説明文の配置 -->
+		<div id="descrptn">
+			<div class="desc" id="d1">
+				<h2>蝶ヶ岳</h2>
+				<p>　残雪の穂高連峰と槍ヶ岳を望む絶好のスポット蝶ヶ岳に登りたいという思いがかねてからあったが、ここ暫く晴天が続くという天気予報を見て、いてもたってもいられなくなり、今回の山行となった。
 　蝶ヶ岳は、学生の頃、やはり残雪の時期に３人の仲間と日帰りで横尾から登り、徳沢に下山したことがあった。雪が結構残っている時期で、ひたすら登りつめて、稜線を望める場所に出た時、ハイマツと雪と雪の溶けた稜線が織りなす美しさに思わず歓声を上げたのを覚えている。残念ながら、槍・穂高は雲の中で見えなかったが、蝶ヶ岳の頂上で即席のアルペン踊りをして満足感を味わった。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d2">
-    	<h2>紅葉の涸沢</h2>
-    	<p>　紅葉の涸沢と言えば、その美しい光景が毎年TVで放映されるので、一度は訪ねてみたいものだと思っていたが、私の所属する「坂歩こう会」の若手女性陣に誘われて、混雑覚悟で同行することにした。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d2">
+				<h2>紅葉の涸沢</h2>
+				<p>　紅葉の涸沢と言えば、その美しい光景が毎年TVで放映されるので、一度は訪ねてみたいものだと思っていたが、私の所属する「坂歩こう会」の若手女性陣に誘われて、混雑覚悟で同行することにした。
 　若手と言っても、５０歳代前半から６０歳までの３人の女性（末永さん、進藤さん、高田さん）であるが、それでも私に比べるとはるかに若い。それに、坂歩こう会の帆足会長（赤帽さん）と西原さんご夫妻、私の計７名のグループで出かけることになった。
 　８月初めに山小屋の予約をかけたが、その時点で、横尾山荘、徳沢園、徳沢ロッジなど軒並み満室で、やっと明神の山のひだやに予約することができた。涸沢ヒュッテにも一応予約したが、おそらくここは、ぎゅうぎゅう詰めの覚悟が必要である。
 　広島から出かける日から帰るまで、天気は上々で、特に、涸沢に入る日と奥穂高岳に登る日の２日間は雲一つない快晴で、またとない登山日和となった。涸沢の紅葉は、まだ色づき始めというところであったが、日に日に色が濃くなり、目を楽しませてくれた。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d3">
-    	<h2>奥穂高岳・涸沢岳</h2>
-    	<p>　９月末に紅葉の涸沢に出かけることになっていて、その時期の涸沢の混雑ぶりも思いやられるので、テント泊もありかなと思い、ソロ用のテントを購入した。早速どこかでテント泊を試してみたいと思ったのだが、場所として、かねてから、こんなところでテント泊してみたいと思っていた上高地の徳沢しか思い浮かばない。現地の天気予報を調べてみると、丁度３日間ほど好天気が続くようだ。よし。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d3">
+				<h2>奥穂高岳・涸沢岳</h2>
+				<p>　９月末に紅葉の涸沢に出かけることになっていて、その時期の涸沢の混雑ぶりも思いやられるので、テント泊もありかなと思い、ソロ用のテントを購入した。早速どこかでテント泊を試してみたいと思ったのだが、場所として、かねてから、こんなところでテント泊してみたいと思っていた上高地の徳沢しか思い浮かばない。現地の天気予報を調べてみると、丁度３日間ほど好天気が続くようだ。よし。
 
 　初日、徳沢で快適なテント泊を経験し、２日目、涸沢に向かうことにしたが、このテントを撤収し、重い思いをして運ぶのがおっくうに感じられ、テントは張ったままで置いておくことにした。それなら、その日のうちに奥穂高山荘まで行けるし、小屋泊まりをして、奥穂高に登れる。
 
 　結局、初日：上高地－徳沢（テン泊）、二日目：徳沢－涸沢－奥穂高山荘（泊）、三日目：奥穂高岳・涸沢岳－涸沢－徳沢（テン泊）、四日目：徳沢－上高地－広島、と言うことになった。
 　初日から三日目まで、絶好の好天気に恵まれ、素晴らしい山行となった。その素晴らしさは、以下の写真を見ていただければ感じ取っていただけると思う。しかし、反面、ザイテングラードの急斜面の登りでは、まだかまだかと、疲れ切った体を持ち上げたことも付け加えなければならないだろう。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d4">
-    	<h2>槍ヶ岳</h2>
-    	<p>　昨年、黒部五郎岳を征したあと西鎌尾根に取りついたところで悪天候に会い、槍を断念したこともあり、今年は喜作新道－東鎌尾根コースで槍に向うことにした。　同行は去年と同じ長野さんで、二人のパーティーであったが、槍までのほとんどの行程を単独行の若き女性と共にすることができ、楽しさも倍加するというものであった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d4">
+				<h2>槍ヶ岳</h2>
+				<p>　昨年、黒部五郎岳を征したあと西鎌尾根に取りついたところで悪天候に会い、槍を断念したこともあり、今年は喜作新道－東鎌尾根コースで槍に向うことにした。　同行は去年と同じ長野さんで、二人のパーティーであったが、槍までのほとんどの行程を単独行の若き女性と共にすることができ、楽しさも倍加するというものであった。
 　東鎌尾根コースは、表銀座ともいわれ北アルプス入門コースとして有名であるが、確かに北アルプスを楽しむ最高のコースの一つであろう。　以前槍沢をつめたことがあり、また今回槍平に降りた経験からして、槍に登るには断然東鎌尾根コースを勧めたい気がする。　（西鎌尾根は経験がないが、眺めた感じからは東鎌よりは単調であるような気がする）
 　東鎌尾根は、周りの山々を眺めながらの登頂である上に、目標の槍ヶ岳が見え隠れしながらどんどん近付いてきて、その懐に向かって突き進んでいき、最後は圧倒されるような思いでたどり着くという楽しさがある。　コースはかなりのアップダウンがあり、そんなに簡単なコースではなく、むしろタフなコースと捉えたほうがよいだろう。
 　7月27日、広島を出て中房温泉の宿に投宿。　たまたま夕食のテーブルの横に座った単独行の若い女性と会話を交わした。　北アルプスに来るのは初めてであるばかりか、山歴もまだまだ浅い様子であった。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d5">
-    	<h2>焼岳</h2>
-    	<p>　北アルプスの玄関口ともいうべき上高地。その玄関先で異彩を放つ焼岳。何時でも登れると言う気でいたら、なかなか登る機会をつかめずにいた。この度、久々の秋晴れの予報を見て、急に思い立っての登山となった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d5">
+				<h2>焼岳</h2>
+				<p>　北アルプスの玄関口ともいうべき上高地。その玄関先で異彩を放つ焼岳。何時でも登れると言う気でいたら、なかなか登る機会をつかめずにいた。この度、久々の秋晴れの予報を見て、急に思い立っての登山となった。
 
 　三連休の初日とあって、上高地近辺の宿屋はどこも満員。この時期、涸沢をはじめとする紅葉スポットを訪れようと観光客、登山客が殺到するのだ。やっと、 ラッキーにも明神池の「山のひだや」さんに空きを見つけ、前日予約にこぎつけた。広島から上高地に2時頃入り、翌日焼岳に登り、どこかの温泉に泊まり、翌 日乗鞍岳あたりを散策しようかという算段である。 </p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d6">
-    	<h2>鷲羽岳・水晶岳</h2>
-    	<p>　北アルプスのおへそ的存在の鷲羽岳・水晶岳に登り、３６０度の展望を楽しみたい、ということと、雄大でなだらかな野口五郎や稀有な形の烏帽子岳を訪れたい、と言うことで、今年の夏は槍抜き裏銀座を縦走することにした。 同行は、去年と同じ、長野さん、河本さんのお二人で、息の合った三人パ-ティーである。　天候の落ち着かない今年の夏にしては、天気に恵まれ、北アルプスのほぼ全山と富士山、南アルプス、八ヶ岳、中央アルプス、御嶽山、白山などなど、贅沢な眺望を楽しむことができた。 日程は、第一日目わさび平泊、第二日目双六を経て三俣小屋泊、第三日目鷲羽岳、水晶岳、野口五郎岳を縦走し野口五郎小屋泊、第四日目烏帽子小屋から烏帽子岳を往復し、高瀬ダムに降りるという予定であった。ところが、私は第三日目の水晶岳を登ったところで、吐き気と下痢に襲われたので、まだ昼前の水晶小屋に泊まり込み、翌日烏帽子小屋に泊まり、一日遅れの行程を歩んだ。　同行の元気なお二人には、予定通りの行程で一日早く広島に帰還して頂いた。 </p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d7">
-    	<h2>野口五郎岳・烏帽子岳</h2>
-    	<p>　北アルプスのおへそ的存在の鷲羽岳・水晶岳に登り、３６０度の展望を楽しみたい、ということと、雄大でなだらかな野口五郎や稀有な形の烏帽子岳を訪れたい、と言うことで、今年の夏は槍抜き裏銀座を縦走することにした。 同行は、去年と同じ、長野さん、河本さんのお二人で、息の合った三人パ-ティーである。　天候の落ち着かない今年の夏にしては、天気に恵まれ、北アルプスのほぼ全山と富士山、南アルプス、八ヶ岳、中央アルプス、御嶽山、白山などなど、贅沢な眺望を楽しむことができた。 日程は、第一日目わさび平泊、第二日目双六を経て三俣小屋泊、第三日目鷲羽岳、水晶岳、野口五郎岳を縦走し野口五郎小屋泊、第四日目烏帽子小屋から烏帽子岳を往復し、高瀬ダムに降りるという予定であった。ところが、私は第三日目の水晶岳を登ったところで、吐き気と下痢に襲われたので、まだ昼前の水晶小屋に泊まり込み、翌日烏帽子小屋に泊まり、一日遅れの行程を歩んだ。　同行の元気なお二人には、予定通りの行程で一日早く広島に帰還して頂いた。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d8">
-    	<h2>薬師岳（五色が原経由）</h2>
-    	<p>　梅雨明け早々の北アルプス、室堂－五色が原－薬師岳－太郎平－折立と言うコースを縦走し、薬師岳を登頂した。今回は、赤帽さんこと帆足さんの百名山・９９座目の登頂と言うことで、光・周南ハイキングクラブの山行に参加させていただいた。メンバーは、女性９名に、原田会長、帆足さんと私の１２名で、内、女性３名と帆足さんと私の５名が、五色が原経由で登り、残りのメンバーは太郎平から黒部五郎岳をこなした後、薬師岳に登り、双方が薬師岳山頂で合流するという楽しい趣向の計画であった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d6">
+				<h2>鷲羽岳・水晶岳</h2>
+				<p>　北アルプスのおへそ的存在の鷲羽岳・水晶岳に登り、３６０度の展望を楽しみたい、ということと、雄大でなだらかな野口五郎や稀有な形の烏帽子岳を訪れたい、と言うことで、今年の夏は槍抜き裏銀座を縦走することにした。 同行は、去年と同じ、長野さん、河本さんのお二人で、息の合った三人パ-ティーである。　天候の落ち着かない今年の夏にしては、天気に恵まれ、北アルプスのほぼ全山と富士山、南アルプス、八ヶ岳、中央アルプス、御嶽山、白山などなど、贅沢な眺望を楽しむことができた。 日程は、第一日目わさび平泊、第二日目双六を経て三俣小屋泊、第三日目鷲羽岳、水晶岳、野口五郎岳を縦走し野口五郎小屋泊、第四日目烏帽子小屋から烏帽子岳を往復し、高瀬ダムに降りるという予定であった。ところが、私は第三日目の水晶岳を登ったところで、吐き気と下痢に襲われたので、まだ昼前の水晶小屋に泊まり込み、翌日烏帽子小屋に泊まり、一日遅れの行程を歩んだ。　同行の元気なお二人には、予定通りの行程で一日早く広島に帰還して頂いた。 </p>
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d7">
+				<h2>野口五郎岳・烏帽子岳</h2>
+				<p>　北アルプスのおへそ的存在の鷲羽岳・水晶岳に登り、３６０度の展望を楽しみたい、ということと、雄大でなだらかな野口五郎や稀有な形の烏帽子岳を訪れたい、と言うことで、今年の夏は槍抜き裏銀座を縦走することにした。 同行は、去年と同じ、長野さん、河本さんのお二人で、息の合った三人パ-ティーである。　天候の落ち着かない今年の夏にしては、天気に恵まれ、北アルプスのほぼ全山と富士山、南アルプス、八ヶ岳、中央アルプス、御嶽山、白山などなど、贅沢な眺望を楽しむことができた。 日程は、第一日目わさび平泊、第二日目双六を経て三俣小屋泊、第三日目鷲羽岳、水晶岳、野口五郎岳を縦走し野口五郎小屋泊、第四日目烏帽子小屋から烏帽子岳を往復し、高瀬ダムに降りるという予定であった。ところが、私は第三日目の水晶岳を登ったところで、吐き気と下痢に襲われたので、まだ昼前の水晶小屋に泊まり込み、翌日烏帽子小屋に泊まり、一日遅れの行程を歩んだ。　同行の元気なお二人には、予定通りの行程で一日早く広島に帰還して頂いた。</p>
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d8">
+				<h2>薬師岳（五色が原経由）</h2>
+				<p>　梅雨明け早々の北アルプス、室堂－五色が原－薬師岳－太郎平－折立と言うコースを縦走し、薬師岳を登頂した。今回は、赤帽さんこと帆足さんの百名山・９９座目の登頂と言うことで、光・周南ハイキングクラブの山行に参加させていただいた。メンバーは、女性９名に、原田会長、帆足さんと私の１２名で、内、女性３名と帆足さんと私の５名が、五色が原経由で登り、残りのメンバーは太郎平から黒部五郎岳をこなした後、薬師岳に登り、双方が薬師岳山頂で合流するという楽しい趣向の計画であった。
 　初日・二日は好天気に恵まれ、三日目も薬師岳山頂まではまずまずの天気で、無事山頂でメンバー全員が感激の合流を果たした。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d9">
-    	<h2>白馬岳（栂池経由）・朝日岳</h2>
-    	<p>　水芭蕉が一面に咲いた湿原（栂池自然公園）の向こうに真っ白に雪をかぶった白馬岳が写ったある旅行会社のパンフレットを見た時、ぜひこの場所を訪れたい、と思ったのが今回の山旅のきっかけである。　しかし、水芭蕉の咲く6月末は、梅雨のまっただ中で、好天に恵まれることはなかなか難しく、白馬岳まで登ることを考えるとその実行に踏み切れないものがあった。　ということで、梅雨明けを待って今回の山行きとなった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d9">
+				<h2>白馬岳（栂池経由）・朝日岳</h2>
+				<p>　水芭蕉が一面に咲いた湿原（栂池自然公園）の向こうに真っ白に雪をかぶった白馬岳が写ったある旅行会社のパンフレットを見た時、ぜひこの場所を訪れたい、と思ったのが今回の山旅のきっかけである。　しかし、水芭蕉の咲く6月末は、梅雨のまっただ中で、好天に恵まれることはなかなか難しく、白馬岳まで登ることを考えるとその実行に踏み切れないものがあった。　ということで、梅雨明けを待って今回の山行きとなった。
 　いつもの長野さんとの二人旅で、栂池―雪倉岳―朝日岳―蓮華温泉のルートを楽しんだ。　「北アルプス最北端の名峰」とも言うべき朝日岳を、我が山行歴の一ページに加えられたことは誠に嬉しい思いでいっぱいであるが、本当にタフな三日間であった。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d10">
-    	<h2>剣岳・立山</h2>
-    	<p>　半世紀近く前、大学の仲間3人と剣・立山を縦走したことがある。　その時は、阿曽原から剣沢を詰め、剣・立山を制し、一の越から室堂に降りた。　私は体調不安があった（登る前から不安を抱えていて、その後2度の入院を強いられた）ので、一の越で下山したが、仲間はそれから薬師、雲ノ平、槍を経て上高地まで縦走した。　まだ横長キスリングを背負ったカニ族の頃である。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d10">
+				<h2>剣岳・立山</h2>
+				<p>　半世紀近く前、大学の仲間3人と剣・立山を縦走したことがある。　その時は、阿曽原から剣沢を詰め、剣・立山を制し、一の越から室堂に降りた。　私は体調不安があった（登る前から不安を抱えていて、その後2度の入院を強いられた）ので、一の越で下山したが、仲間はそれから薬師、雲ノ平、槍を経て上高地まで縦走した。　まだ横長キスリングを背負ったカニ族の頃である。
 　ところが私の中では、剣登山の記憶がほとんどない。　天気が悪かったこともあって、眺望の無い中をひたすら登り、下山したのであろう。　岩場が怖かったという記憶もないし（カニノヨコバイをどこで通過したのか当時でもわからなかった）、制した感動も残っていない。
 　剣をしっかり味わいたい。　と、言うわけで、いつもの長野さんとの二人連れで出かけることにした。　室堂から雷鳥坂を登り、剣山荘まで入り、翌日剣に登り、別山乗越の剣御前小舎まで。　3日目は、立山を縦走し一の越から室堂に降りた。　素晴らしい天候に恵まれ、感動の登山となった。　やはり、剣はすばらしい。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d11">
-    	<h2>平ヶ岳・越後駒ケ岳</h2>
-    	<p>　10月初め、山頂付近の紅葉、特に湿原の紅葉が期待できる、平ヶ岳、越後駒ケ岳を登頂した。　今回は、坂歩こう会でお世話になっている、赤帽さんこと帆足さんのお誘いで、光・周南ハイキングクラブの行事に参加させていただいた。　ベテランぞろいのメンバー５人、強烈個性の持ち主で日本の山々はもとより全国の地方や島々までを何度も訪ね歩き、知り尽くしている原田会長に私、合計７人のチームである。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d11">
+				<h2>平ヶ岳・越後駒ケ岳</h2>
+				<p>　10月初め、山頂付近の紅葉、特に湿原の紅葉が期待できる、平ヶ岳、越後駒ケ岳を登頂した。　今回は、坂歩こう会でお世話になっている、赤帽さんこと帆足さんのお誘いで、光・周南ハイキングクラブの行事に参加させていただいた。　ベテランぞろいのメンバー５人、強烈個性の持ち主で日本の山々はもとより全国の地方や島々までを何度も訪ね歩き、知り尽くしている原田会長に私、合計７人のチームである。
 　原田会長の運転する光出発の自家用車に乗り合わせ、現地までを往復するという強行軍ながら、それだけに息の合ったチームとして、１日目の快晴の平ケ岳、２日目のほとんどが霧の中の越後駒ケ岳を楽しむことができた。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d12">
-    	<h2>赤石岳</h2>
-    	<p>　今年の夏山遠征は、ひろでん中国新聞旅行のツアーに参加して、南アルプスの南部、荒川三山（悪沢岳・東岳、中岳、前岳）と赤石岳を縦走した。　私としては、南アルプス南部の山行は初めてである。　椹島ロッジを起点に、千枚小屋(泊)－荒川三山－荒川小屋（泊）－赤石岳－赤石小屋(泊)－椹島ロッジ－広島　という行程で、比較的時間的には余裕のある山行であったが、かなり厳しい登り降りの連続に、メンバーについていくのがいっぱい一杯の毎日であった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d12">
+				<h2>赤石岳</h2>
+				<p>　今年の夏山遠征は、ひろでん中国新聞旅行のツアーに参加して、南アルプスの南部、荒川三山（悪沢岳・東岳、中岳、前岳）と赤石岳を縦走した。　私としては、南アルプス南部の山行は初めてである。　椹島ロッジを起点に、千枚小屋(泊)－荒川三山－荒川小屋（泊）－赤石岳－赤石小屋(泊)－椹島ロッジ－広島　という行程で、比較的時間的には余裕のある山行であったが、かなり厳しい登り降りの連続に、メンバーについていくのがいっぱい一杯の毎日であった。
 　しかし、連日すばらしい天候に恵まれ、ピークピークでは360度の展望を楽しむことができた。
 　メンバーは、女子5名、男子11名にガイドさん、添乗員さんの計18名。猛者ぞろいのメンバーが、ときには黙々と、時には楽しく語り合いながら、順調にこのコースをのり切ることができた。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d13">
-    	<h2>荒川三山</h2>
-    	<p>　今年の夏山遠征は、ひろでん中国新聞旅行のツアーに参加して、南アルプスの南部、荒川三山（悪沢岳・東岳、中岳、前岳）と赤石岳を縦走した。　私としては、南アルプス南部の山行は初めてである。　椹島ロッジを起点に、千枚小屋(泊)－荒川三山－荒川小屋（泊）－赤石岳－赤石小屋(泊)－椹島ロッジ－広島　という行程で、比較的時間的には余裕のある山行であったが、かなり厳しい登り降りの連続に、メンバーについていくのがいっぱい一杯の毎日であった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d13">
+				<h2>荒川三山</h2>
+				<p>　今年の夏山遠征は、ひろでん中国新聞旅行のツアーに参加して、南アルプスの南部、荒川三山（悪沢岳・東岳、中岳、前岳）と赤石岳を縦走した。　私としては、南アルプス南部の山行は初めてである。　椹島ロッジを起点に、千枚小屋(泊)－荒川三山－荒川小屋（泊）－赤石岳－赤石小屋(泊)－椹島ロッジ－広島　という行程で、比較的時間的には余裕のある山行であったが、かなり厳しい登り降りの連続に、メンバーについていくのがいっぱい一杯の毎日であった。
 　しかし、連日すばらしい天候に恵まれ、ピークピークでは360度の展望を楽しむことができた。
 　メンバーは、女子5名、男子11名にガイドさん、添乗員さんの計18名。猛者ぞろいのメンバーが、ときには黙々と、時には楽しく語り合いながら、順調にこのコースをのり切ることができた。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d14">
-    	<h2>八ヶ岳</h2>
-    	<p>　１０月中旬の連休後半、美濃戸口から麦草峠まで、八ヶ岳の山々を縦走した。まずまずの天気に恵まれ、富士山、アルプス、奥秩父の山並みなど、３６０度のパノラマを見ながらの稜線歩きは、素晴らしいものであった。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d14">
+				<h2>八ヶ岳</h2>
+				<p>　１０月中旬の連休後半、美濃戸口から麦草峠まで、八ヶ岳の山々を縦走した。まずまずの天気に恵まれ、富士山、アルプス、奥秩父の山並みなど、３６０度のパノラマを見ながらの稜線歩きは、素晴らしいものであった。
 　メンバーは、これまで北アルプス歩きをともにしてきた、長野さん、河本さんと私の３人で、夏の時期に遠征登山を実現できなかった分、大きな期待を持って登山に臨んだ。
 　私にとっても、大昔、美濃戸からの赤岳、麦草峠からの東・西天狗岳のピストン登山の経験はあったが、あまり覚えていないこともあって、とても新鮮な登山となった。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
-  	<div class="desc" id="d15">
-    	<h2>久住山・平治岳</h2>
-    	<p>　テレビのニュースや、山番組などで、山肌を一面にミヤマキリシマが咲き誇る映像を一度は見たことがあると思うが、それを現場で、我が目で見てみたいとい う私の長年の願望がついに実現した山行であった。　私としては、三度目の久住登山（５０数年前と２５年ほど前の夏に訪れた）で、この季節は初めてである。
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+			<div class="desc" id="d15">
+				<h2>久住山・平治岳</h2>
+				<p>　テレビのニュースや、山番組などで、山肌を一面にミヤマキリシマが咲き誇る映像を一度は見たことがあると思うが、それを現場で、我が目で見てみたいとい う私の長年の願望がついに実現した山行であった。　私としては、三度目の久住登山（５０数年前と２５年ほど前の夏に訪れた）で、この季節は初めてである。
 
 　毎年、ひろでん中国新聞旅行社の年間カタログに必ず載っている「ﾐﾔﾏｷﾘｼﾏの久住山と平治岳登山2日間」というツアーに参加して、梅雨入り宣言直後 の、牧の戸峠ー久住山ー法華院温泉（泊）ー平治岳ー長者原コースに出かけてきた。　梅雨の時期にしては、1日目に一部雨中行進を強いられたものの、２日目 は何とか天気も持ちこたえてくれて、大戸越、平治岳頂上付近の素晴らしいミヤマキリシマを楽しむことができた。　特に、大戸越からミヤマキリシマを縫うよ うに登りつめて、平治岳頂上を展望した時に目の当たりにした光景には、忘れることのない感動を覚えた。　大戸越であまりの素晴らしさに感激し、更にまた、 それ以上の感動を覚えたのであった。</p>
- 		<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
- 	</div>
- </div>
-</div>
+				<p><a href="https://chum9625.github.io/" target="_blank">続きを読む</a>　　<label for="r100" class="back"><u>一覧に戻る</u></label></p>
+			</div>
+		</div>
+	</div>
 
 </body>
 </html>
