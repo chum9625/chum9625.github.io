@@ -1,3 +1,23 @@
+figure {
+	position: relative;
+	display: inline-block;
+	margin-right: 20px;
+	width: 400px;
+}
+	figure img {
+		max-width: 100%;
+		vertical-align: top;
+	}
+	figure figcaption {
+		position: absolute;
+		left: 0;
+		bottom: 0;
+		padding: 5px 10px;
+		font-size: 86%;
+		color: #fff;
+		background: #333;
+	}
+
 /*全サムネイルのコンテナー*/
 #thumbs {
   position: relative;
