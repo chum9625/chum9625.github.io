@@ -14,7 +14,7 @@
   text-align: center;
 }
 /*サムネイルの上に文字*/
-#thumbs label p {
+#thumbs label p.text {
   position: absolute;
   top: 50%;
   left: 50%;
