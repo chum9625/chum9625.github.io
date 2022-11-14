@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./g03.css">
+  <title>Lightbox Fadein型 + infomation</title>
+</head>
+<body>
+
+  <input type="radio" id="r1" name="gal">
+  <input type="radio" id="r2" name="gal">
+  <input type="radio" id="r3" name="gal">
+  <input type="radio" id="r4" name="gal">
+  <input type="radio" id="r5" name="gal">
+  <input type="radio" id="r6" name="gal">
+  <input type="radio" id="r7" name="gal">
+  <input type="radio" id="r8" name="gal">
+  <input type="radio" id="r9" name="gal">
+  <input type="radio" id="r10" name="gal">
+  <input type="radio" id="r90" name="gal">
+  <input type="radio" id="r91" name="gal">
+  <div id="thumbs">
+    <label for="r1"><img src="img03/s1.jpg"><p class="text">リールキー<br>個数：95<br>最低価格￥100</p></label>
+    <label for="r2"><img src="img03/s2.jpg"></label>
+    <label for="r3"><img src="img03/s3.jpg"></label>
+    <label for="r4"><img src="img03/s4.jpg"></label>
+    <label for="r5"><img src="img03/s5.jpg"></label>
+    <label for="r6"><img src="img03/s1.jpg"></label>
+    <label for="r7"><img src="img03/s2.jpg"></label>
+    <label for="r8"><img src="img03/s3.jpg"></label>
+    <label for="r9"><img src="img03/s4.jpg"></label>
+    <label for="r10"><img src="img03/s5.jpg"><p class="text">リールキー<br>個数：95<br>最低価格￥100</p></label>
+  </div>
+  <label for="r91">
+    <div id="darkscreen"></div>
+  </label>
+  <div id="stage">
+    <div id="photo1">
+	<figure>
+      <img src="img03/m1.jpg">
+	<figcaption>リールキー<br>個数：95<br>価格100円</figcaption>
+     </figure>
+      <img src="img03/m1.jpg">
+      <span class="span_l">1/10　　　朝焼けの焼岳</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r2">
+        <div id="right1" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r10">
+        <div id="left1" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo2">
+      <img src="img03/m2.jpg">
+      <span class="span_l">2/10　　　針ノ木岳、スバリ岳を背に岩小屋沢岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r3">
+        <div id="right2" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r1">
+        <div id="left2" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo3">
+      <img src="img03/m3.jpg">
+      <span class="span_l">3/10　　　剣岳を真近に望む</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r4">
+        <div id="right3" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r2">
+        <div id="left3" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo4">
+      <img src="img03/m4.jpg">
+      <span class="span_l">4/10　　　鹿島槍ヶ岳、後立山連峰</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r5">
+        <div id="right4" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r3">
+        <div id="left4" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo5">
+      <img src="img03/m5.jpg">
+      <span class="span_l">5/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r6">
+        <div id="right5" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r4">
+        <div id="left5" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo6">
+      <img src="img03/m1.jpg">
+      <span class="span_l">6/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r7">
+        <div id="right6" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r5">
+        <div id="left6" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo7">
+      <img src="img03/m2.jpg">
+      <span class="span_l">7/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r8">
+        <div id="right7" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r6">
+        <div id="left7" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo8">
+      <img src="img03/m3.jpg">
+      <span class="span_l">8/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r9">
+        <div id="right8" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r7">
+        <div id="left8" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo9">
+      <img src="img03/m4.jpg">
+      <span class="span_l">9/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r10">
+        <div id="right9" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r8">
+        <div id="left9" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+    <div id="photo10">
+      <img src="img03/m5.jpg">
+      <span class="span_l">10/10　　　岩小屋沢、鳴沢岳を背に岳爺ヶ岳への登り</span>
+      <label for="r90"><span class="span_r">✖ 閉じる</span></label>
+      <label for="r1">
+        <div id="right10" class="cover_right"><span>＞</span></div>
+      </label>
+      <label for="r9">
+        <div id="left10" class="cover_left"><span>＜</span></div>
+      </label>
+    </div>
+  </div>
+
+
+		<!-- iframe表示 -->
+  <div class="p-home">
+			<h4>本サンプル表示用HTML</h4>
+			<iframe src="info.html" frameborder="0"></iframe>
+		</div>
+</body>
+</html>
