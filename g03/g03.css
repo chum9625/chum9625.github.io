@@ -9,6 +9,10 @@
 #thumbs label img {
   cursor: pointer;
 }
+#thumbs label {
+  position: relative;
+  text-align: center;
+}
 /*サムネイルの上に文字*/
 #thumbs label p  {
   position: absolute;
