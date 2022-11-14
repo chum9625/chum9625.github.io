@@ -9,6 +9,15 @@
 #thumbs label img {
   cursor: pointer;
 }
+/*サムネイルの上に文字*/
+#thumbs label p  {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+}
+
 /*ラジオボタンを非表示に*/
 #r1, #r2, #r3, #r4, #r5, #r6, #r7, #r8, #r9, #r10, #r90, #r91 {
   display: none;
