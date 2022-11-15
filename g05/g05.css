@@ -1,27 +1,34 @@
-* {margin:0;padding:0;}
+/* * {margin:0;padding:0;} */
 
-.clearfix::after {
+.nov3-body {
+	font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;color: #333;
+	line-height: 1.7;
+	background: linear-gradient(#a6ce38, #8b50e5) fixed;
+}
+
+.nov3-clearfix::after {
 	content: "";
 	display: block;
 	clear: both;
 }
 
-.wrap {
+.nov3-wrap {
 	width: 1200px;
 	margin: 60px auto 0;
 }
 
-body {
-	font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;color: #333;line-height: 1.7;background: linear-gradient(#a6ce38, #8b50e5) fixed;
+.nov3-h1 {
+	margin-bottom: 30px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 2px 2px 0 #222;
 }
 
-h1 {margin-bottom: 30px;color: #fff;text-align: center;text-shadow: 2px 2px 0 #222;}
-
-p {
+.nov3-p {
 	font-size: 0.9em;
 }
 
-img {
+.nov3-img {
 	max-width: 300px;
 	min-width: 240px;
 	border-radius: 8px;
@@ -71,28 +78,16 @@ figure:hover:before {
   opacity: 0;
 }
 
-.cap-left:before {  bottom: 10px; left: 10px; }
-.cap-left figcaption { bottom: 0; left: -30%; }
-.cap-left:hover figcaption { left: 0; }
-
-.cap-right:before { bottom: 10px; right: 10px; }
-.cap-right figcaption { bottom: 0; right: -30%; }
-.cap-right:hover figcaption { right: 0; }
-
-.cap-top:before { top: 10px; left: 10px; }
-.cap-top figcaption { left: 0; top: -30%; }
-.cap-top:hover figcaption { top: 0; }
-
 .cap-bot:before { bottom: 10px; left: 10px; }
 .cap-bot figcaption { left: 0; bottom: -30%;}
 .cap-bot:hover figcaption { bottom: 0; }
 
-ul {
+.nov3-gallery,.nov3-gallery--p {
 	list-style:none;
 	text-align: center;
 }
 
-.gallery li {
+.nov3-gallery li {
 	float: left;
 	position: relative;
 	margin: 0 20px 20px 0;
@@ -101,7 +96,7 @@ ul {
 	border-radius: 8px;
 }
 
-.gallery--p li {
+.nov3-gallery--p li {
 	float: left;
 	position: relative;
 	margin: 0 20px 20px 0;
@@ -110,13 +105,13 @@ ul {
 	border-radius: 8px;
 }
 
-.gallery li:hover,
-.gallery--p li:hover {
+.nov3-gallery li:hover,
+.nov3-gallery--p li:hover {
 	z-index: 10;
 	transform: scale(1.6);
 }
 
-span {
+.nov3-price {
 	font-family: "arial black";
 	font-weight: 800;
 	font-size: 1.1em;
