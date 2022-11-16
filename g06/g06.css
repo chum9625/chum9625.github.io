@@ -7,8 +7,9 @@
 .main {
 	/* flex設定 */
 	display: flex;
-	/* flex-wrap: wrap; */
+	flex-wrap: wrap;
 	border: 1px solid #000;/* チェック用ライン */
+	width: 100%;
 }
 
 .nov3-h1 {
