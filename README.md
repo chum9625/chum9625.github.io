@@ -9,7 +9,8 @@
 2. [Lightbox タイプ Fadein型](./g02/g02.html)
 3. [g01 + g02 カスタム](./g03/g03.html)
 4. [拡大表示](./g04/g04.html)
-5. [キャプション付](./g05/g05.html)
+5. [float-キャプション付](./g05/g05.html)
+6. [flex-キャプション付](./g06/g06.html)
 
 
 ---
@@ -20,3 +21,4 @@
 - https://www.design-memo.com/coding/css-photo-gallery
 - https://coliss.com/articles/build-websites/operation/css/slide-in-image-captions-by-css-tricks.html
 - https://css-tricks.com/examples/SlideinCaptions/
+- [Flexbox入門](https://ics.media/entry/13117/)
