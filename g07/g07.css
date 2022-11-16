@@ -18,7 +18,17 @@
 	margin-bottom: 30px;
 	color: #fff;
 	text-align: center;
-	text-shadow: 2px 2px 0 #222;
+	text-shadow: 1px 1px 0 #000;
+	font-weight: 900;
+}
+
+.nov3-info {
+	/* display:block; */
+	margin: 40px;
+	border: 10px solid #eee;
+	background: #eee;
+	border-radius: 8px;
+	font-size: 1.2em;
 }
 
 .nov3-p {
@@ -85,6 +95,7 @@ figure:hover:before {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: center;
+	width: 1200px; /* nov3-body と揃える */
 }
 
 .nov3-gallery li {
@@ -111,12 +122,4 @@ figure:hover:before {
 	font-family: "arial black";
 	font-weight: 800;
 	font-size: 1.1em;
-}
-
-.nov3-info {
-	/* display:block; */
-	margin: 40px;
-	border: 10px solid #eee;
-	background: #eee;
-	border-radius: 8px;
 }
