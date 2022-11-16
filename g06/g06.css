@@ -8,6 +8,8 @@
 	font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;color: #333;
 	line-height: 1.7;
 	background: linear-gradient(#a6ce38, #8b50e5) fixed;
+	margin: 0 auto;
+	width: 1200px;
 }
 
 .main {
