@@ -1,0 +1,125 @@
+.nov3-body {
+	font-family: "游ゴシック", YuGothic, "ヒラギノ角ゴ Pro", "Hiragino Kaku Gothic Pro", "メイリオ", "Meiryo", sans-serif;color: #333;
+	line-height: 1.7;
+	background: linear-gradient(#a6ce38, #8b50e5) fixed;
+	margin: 0 auto;
+	width: 1200px;
+	border-radius: 8px;
+}
+
+.main {
+	/* flex設定 */
+	display: flex;
+	flex-wrap: wrap;
+	width: 100%;
+}
+
+.nov3-h1 {
+	margin-bottom: 30px;
+	color: #fff;
+	text-align: center;
+	text-shadow: 1px 1px 0 #000;
+	font-weight: 900;
+}
+
+.nov3-info {
+	margin: 40px;
+	border: 10px solid #eee;
+	background: #eee;
+	border-radius: 8px;
+	font-size: 1.3em;
+	text-align: center;
+}
+
+.nov3-p {
+	font-size: 1em;
+}
+
+.nov3-img {
+	max-width: 240px;
+	/* min-width: 140px; */
+}
+
+figure {
+  display: block;
+  position: relative;
+  float: left;
+  overflow: hidden;
+  margin: 0 20px 5px 20px;
+}
+figcaption {
+  position: absolute;
+  background: black;
+  background: rgba(0,0,0,0.75);
+  color: white;
+  padding: 10px 20px;
+  opacity: 0;
+  -webkit-transition: all 0.6s ease;
+  -moz-transition:    all 0.6s ease;
+  -o-transition:      all 0.6s ease;
+}
+figure:hover figcaption {
+  opacity: 1;
+}
+
+.cap-bot:before { bottom: 10px; left: 10px; }
+.cap-bot figcaption { left: 0; bottom: -30%;}
+.cap-bot:hover figcaption { bottom: 0; }
+
+.nov3-gallery,.nov3-gallery--p {
+	list-style:none;
+	text-align: center;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	width: 1200px; /* nov3-body と揃える */
+}
+
+.nov3-gallery li {
+	margin: 0 20px 40px 0;
+	border: 10px solid #fff;
+	box-shadow: 5px 5px 5px #222;
+	background: #fff;
+	z-index: 1;
+	box-sizing: border-box;
+	transform: scale(1.0);
+	transition: all 0.3s ease-out;
+
+}
+
+.nov3-gallery--p li {
+	margin: 0 20px 40px 0;
+	border: 10px solid #e0ccb8;
+	box-shadow: 5px 5px 5px #222;
+	background: #e0ccb8;
+	z-index: 1;
+	box-sizing: border-box;
+	transform: scale(1.0);
+	transition: all 0.3s ease-out;
+}
+
+.nov3-gallery li:hover,
+.nov3-gallery--p li:hover {
+	z-index: 10;
+	transform: scale(1.8);
+	rotate(0deg);
+}
+
+.nov3-price {
+	font-family: "arial black";
+	font-weight: 800;
+	font-size: 1.1em;
+}
+
+/* Plraroid風味 */
+.nov3-gallery li:nth-child(3n) {
+	margin: 0 0 20px 0;
+}
+.nov3-gallery .pola1,.nov3-gallery--p .pola1 {transform: rotate(-5deg);}
+.nov3-gallery .pola2,.nov3-gallery--p .pola2 {transform: rotate(3deg);}
+.nov3-gallery .pola3,.nov3-gallery--p .pola3 {transform: rotate(-5deg);}
+.nov3-gallery .pola4,.nov3-gallery--p .pola4 {transform: rotate(-6deg);}
+.nov3-gallery .pola5,.nov3-gallery--p .pola5 {transform: rotate(8deg);}
+.nov3-gallery .pola6,.nov3-gallery--p .pola6 {transform: rotate(5deg);}
+/* .gallery li:hover {z-index: 10;transform: scale(1.5) rotate(0deg);} */
+/* .gallery:after {clear: both;content: "";display: table;} */

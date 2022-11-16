@@ -12,6 +12,7 @@
 5. [float-キャプション付](./g05/g05.html)
 6. [flex-キャプション付](./g06/g06.html)
 7. [flex-キャプション付](./g07/g07.html)
+8. [flex-キャプション付-Polaroid](./g07pola/g07pola.html)
 
 
 ---
