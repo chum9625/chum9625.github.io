@@ -1,0 +1,58 @@
+div.cover {
+	display: table;
+	border-spacing: 0.5em;
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	background: #cccccc;
+	border: solid 1px;
+}
+
+div.cover div.box1 {
+	display: table-cell;
+	margin: 0;
+	padding: 0.5em;
+	background: #ffdddd;
+	width: 33.3%;
+}
+
+div.cover div.box2 {
+	display: table-cell;
+	margin: 0;
+	padding: 0.5em;
+	background: #ffffcc;
+	width: 33.3%;
+}
+
+div.cover div.box3 {
+	display: table-cell;
+	margin: 0;
+	padding: 0.5em;
+	background: #ccffcc;
+}
+
+/* 縦横中央揃え */
+img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	max-height: 100%;
+}
+
+@media screen and (max-width: 640px) {
+	div.cover {
+		display: block;
+	}
+	div.cover div.box1 {
+		display: block;
+		width: 100%;
+	}
+	div.cover div.box2 {
+		display: block;
+		width: 100%;
+	}
+	div.cover div.box3 {
+		display: block;
+		width: 100%;
+	}
+}

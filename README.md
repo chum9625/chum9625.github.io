@@ -5,14 +5,14 @@
 
 ## CSS
 
-1. [フォトギャラリーナビ型ポートフォリオ](./g01/g01.html)
-2. [Lightbox タイプ Fadein型](./g02/g02.html)
-3. [g01 + g02 カスタム](./g03/g03.html)
+1. [display段組](./01/01.html)
+2. [Lightbox タイプ Fadein型](./02/02.html)
+3. [g01 + g02 カスタム](./03/03.html)
 4. [拡大表示](./g04/g04.html)
-5. [float-キャプション付](./g05/g05.html)
-6. [flex-キャプション付](./g06/g06.html)
-7. [flex-キャプション付](./g07/g07.html)
-8. [flex-キャプション付-Polaroid](./g07pola/g07pola.html)
+5. [float-キャプション付](./05/05.html)
+6. [flex-キャプション付](./06/06.html)
+7. [flex-キャプション付](./07/07.html)
+8. [flex-キャプション付-Polaroid](./07pola/07pola.html)
 
 
 ---
