@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta name="robots" content="noindex,nofollow" />
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./02.css">
+  <title>img画像をbox内に収める</title>
+</head>
+<body>
+
+  <h1>要件</h1>
+
+  <ul>
+    <li>ボックスのサイズは固定</li>
+    <li>横長画像はボックスの横幅に合わせる</li>
+    <li>縦長画像はボックスの縦幅に合わせる</li>
+    <li>画像サイズが小さい場合はそのまま</li>
+    <li>縦横中央揃え</li>
+  </ul>
+
+
+  <section>
+    <h1>table-cell</h1>
+    <div class="img-container--table-cell">
+      <img src="https://source.unsplash.com/random/" alt="">
+    </div>
+  </section>
+
+  <section>
+    <h1>precedo inline-precedo</h1>
+    <div class="img-container--precedo">
+      <img src="https://source.unsplash.com/random/" alt="">
+    </div>
+  </section>
+
+  <section>
+    <h1>absolute-position</h1>
+    <div class="img-container--absolute-position">
+      <img src="https://source.unsplash.com/random/" alt="">
+    </div>
+  </section>
+
+  <section>
+    <h1>flex-box</h1>
+    <div class="img-container--flex-box">
+      <img src="https://source.unsplash.com/random/" alt="">
+    </div>
+  </section>
+
+  <section>
+    <h1>object-fit</h1>
+    <div class="img-container--object-fit">
+      <img src="https://source.unsplash.com/random/" alt="">
+    </div>
+  </section>
+
+</body>
+</html>
