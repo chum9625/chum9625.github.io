@@ -5,14 +5,14 @@
 
 ## CSS
 
-1. [display段組](./01/01.html)
-2. [Lightbox タイプ Fadein型](./02/02.html)
-3. [g01 + g02 カスタム](./03/03.html)
+1. [table-cellで段組（マルチカラム）](./01/01.html)
+2. [img画像をbox内に収める](./02/02.html)
+3. [object-fit<](./03/03.html)
 4. [拡大表示](./g04/g04.html)
 5. [float-キャプション付](./05/05.html)
 6. [flex-キャプション付](./06/06.html)
 7. [flex-キャプション付](./07/07.html)
-8. [flex-キャプション付-Polaroid](./07pola/07pola.html)
+8. [flex-キャプション付-Polaroid](./07/07b.html)
 
 
 ---
